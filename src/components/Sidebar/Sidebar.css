@@ -3,7 +3,7 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    animation: fadeIn 1.5s;
     background-color: #f0f4f9;
     padding: 25px 15px;
 }
@@ -78,3 +78,33 @@
     padding-right: 10px;
     cursor: pointer;
 }
+.recent-entry-parent {
+    position: relative;
+}
+.tooltip {
+    position: absolute;
+    background-color: #f0f4f5;
+    visibility: hidden;
+    border-radius: 50px;
+    padding: 10px;
+    width: 400px;
+    z-index: 1;
+  }
+  
+  .recent-entry:hover + .tooltip {
+    visibility: visible;
+  }
+  /* .tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    
+  } */
+
+  @media (max-width:600px) {
+    .sidebar {
+        display: none;
+    }
+  }

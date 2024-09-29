@@ -13,6 +13,16 @@ const Sidebar = () => {
     setRecentPrompt(prompt);
     await onSent(prompt);
   };
+
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleMouseOver = () => {
+    setShowTooltip(true);
+  };
+
+  const handleMouseOut = () => {
+    setShowTooltip(false);
+  };
   // {`sidebar ${extended ? "" : "collapsed"}`
   return (
     <div className="sidebar">
@@ -32,9 +42,20 @@ const Sidebar = () => {
             <p className="recent-title">Recent</p>
             {prevPrompt.map((item, index) => {
               return (
-                <div onClick={() => loadPrompt(item)} className="recent-entry">
-                  <img src={assets.message_icon} alt="" />
-                  <p>{item}</p>
+                <div className="recent-entry-parent">
+                  <div
+                    // onMouseOver={handleMouseOver}
+                    // onMouseOut={handleMouseOut}
+                    onClick={() => loadPrompt(item)}
+                    className="recent-entry"
+                  >
+                    <img src={assets.message_icon} alt="" />
+                    <p>{item}</p>
+                  </div>
+
+                  <div className="tooltip">
+                    <p>{item}</p>
+                  </div>
                 </div>
               );
             })}
